@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/auth.js");
-
+const profileRoutes = require("./routes/profile.js");
 
 const app = express();
 app.use(cors());
@@ -14,7 +14,7 @@ app.get("/health", (req, res) => {
 })
 
 app.use("/api/auth", authRoutes);
-
+app.use("/api/profile", profileRoutes)
 
 mongoose
 .connect(process.env.MONGO_URI)
